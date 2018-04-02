@@ -1,13 +1,13 @@
 package com.onahump.demo.controller
 
 import org.springframework.stereotype.Controller
-import org.springframework.web.bin.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMapping
+
 
 @Controller
 class HomeController{
-
 	@RequestMapping("/")
-	String home(){
-		"home"
+	String index(){
+		"index"
 	}
 }
