@@ -3,8 +3,8 @@ package com.onahump.demo.service
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
-import com.onahump.model.Student
-import com.onahump.repository.StudentRepository
+import com.onahump.demo.model.Student
+import com.onahump.demo.repository.StudentRepository
 
 @Service
 class StudentServiceImpl implements StudentService{
