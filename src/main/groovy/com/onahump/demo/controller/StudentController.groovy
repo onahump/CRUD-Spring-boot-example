@@ -1,17 +1,19 @@
 package com.onahump.demo.controller
 
+import com.onahump.demo.model.Student
+import com.onahump.demo.service.StudentService
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.ui.Model
-import org.springframework.web.bin.annotation.RequestMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMethod
 
-import com.onahump.demo.Student
-import com.onahump.demo.StudentService
+
 
 @Controller
-class HomeController{
+class StudentController{
 
 	@Autowired 
 	StudentService studentService
@@ -22,32 +24,32 @@ class HomeController{
 		"students"
 	}
 
-	@RequestMapping(value = "students/{id}")
-	String allStudents(@PathVariable Integer id, Model model){
+	@RequestMapping("students/{id}")
+	String showStudents(@PathVariable Integer id, Model model){
 		model.addAttribute("student", studentService.getStudentById(id))
 		"studentShow"
 	}
 
-	@RequestMapping(value = "students/edit/{id}")
-	String allStudents(@PathVariable Integer id, Model model){
+	@RequestMapping("students/edit/{id}")
+	String editStudent(@PathVariable Integer id, Model model){
 		model.addAttribute("student", studentService.getStudentById(id))
 		"studentForm"
 	}
 
 	@RequestMapping("student/new")
-	String allStudents(Model model){
+	String newStudent(Model model){
 		model.addAttribute("student", new Student())
-		"studentForm"
+		return"studentForm"
 	}
 
 	@RequestMapping(value = "student", method = RequestMethod.POST)
-	String allStudents(Student student){
-		studentService.saveStudent(student))
+	String saveStudent(Student student){
+		studentService.saveStudent(student)
 		return "redirect:/student/" + student.id()
 	}
 
 	@RequestMapping("student/delete/{id}")
-	String allStudents(@PathVariable Integer id){
+	String deleteStudent(@PathVariable Integer id){
 		studentService.deleteStudent(id)
 		return "redirect:/students"
 	}
