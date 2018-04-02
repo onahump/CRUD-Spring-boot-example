@@ -1,4 +1,4 @@
-package com.onahump.repository
+package com.onahump.demo.repository
 
 import org.springframework.data.repository.CrudRepository
 import org.springframework.transaction.annotation.Transactional
@@ -6,6 +6,6 @@ import org.springframework.transaction.annotation.Transactional
 import com.onahump.demo.model.Student
 
 @Transactional
-inteface StudenRepository extends CrudRepository <Student, Integer>{
+interface StudentRepository extends CrudRepository <Student, Integer>{
 
 }
